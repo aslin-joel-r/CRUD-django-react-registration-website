@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            
+            display: flex; /* Set display to flex */
+            justify-content: center; /* Horizontally center the content */
+            align-items: center; /* Vertically center the content */
+       
+        }
+        div {margin-top: 80px;
+            padding: 20px;
+            text-align: center; /* Center align the content */
+            box-shadow: 5px 5px 60px 10px rgb(144, 5, 144);
+            border-radius: 20px;
+        }
+        fieldset {
+            position: relative;
+            left: 0;
+            margin: auto;
+            padding-top: 0;
+            width: 80%;
+            border-radius: 15px;
+            border: 2px solid purple;
+        }
+        input[type='text'],
+        input[type="email"],
+        input[type='tel'],
+        textarea {
+            width: 100%;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            
+        }
+        input[type='radio']{
+            text-align: left;
+        }
+        form {
+            position: relative;
+            left: 0;
+            margin: auto;
+        }
+        legend {
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(188, 6, 133);
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Welcome to Gala Fest</h1>
+    <form action="">
+        <fieldset>
+            <legend>Name</legend>
+            <input type="text" name="name" id="name"><br>
+        </fieldset>
+        <fieldset>
+            <legend>E-mail</legend>
+            <input type="email" name="mail" id="mail"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Phone No</legend>
+            <input type="tel" name="phone_number" id="phone"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Role</legend>
+            <input type="radio" name="role" id="student">
+            <label for="student">Students</label><br>
+            <input type="radio" name="role" id="staff">
+            <label for="staff">Staff</label><br>
+            <input type="radio" name="role" id="admin">
+            <label for="admin">Admin</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+            <textarea name="comment" id="comments" cols="40" rows="5"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Interested celebrities</legend>
+            <input type="checkbox" name="celebrity" id="ak">
+            <label for="ak">Abdul Kalam</label><br>
+            <input type="checkbox" name="celebrity" id="kr">
+            <label for="kr">Kama Rajar</label><br>
+            <input type="checkbox" name="celebrity" id="nt">
+            <label for="nt">Nikola Tesla</label><br>
+            <input type="checkbox" name="celebrity" id="others">
+            <label for="others">Others</label><br>
+        </fieldset><br>
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+</body>
+</html>
