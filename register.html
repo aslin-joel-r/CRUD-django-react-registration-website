@@ -1,53 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gala Fest Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
+<html>
 <body>
-    <div>
-       <form action="">
-        
-        <fieldset>
-            <legend>ytygyi</legend>
-            <h1>
-                Welcome to Gala Fest
-            </h1>
-            <label for="name">Name :</label>
-            <input type="text" name="name" id="name"><br>
-            <label for="mail">E-mail :</label>
-            <input type="email" name="mail" id="mail"><br>
-            <label for="phone">Phone No :</label>
-            <input type="tel" name="phone_number" id="phone"><br>
-         
-            <label for="role">Role :</label>
-            <input type="radio" name="role" id="student">
-            <label for="student">Students</label><br>
-            <input type="radio" name="role" id="staff">
-            <label for="staff">Staff</label><br>
-            <input type="radio" name="role" id="admin">
-            <label for="admin">Admin</label><br>
-         
-           <textarea name="comment" id="comments" cols="40" rows="5"></textarea>
-            
-            <h4>Interested celebrities</h4>
-                <input type="checkbox" name="celebrity" id="ak">
-                <label for="ak">Abdul Kalam</label><br>
-                <input type="checkbox" name="celebrity" id="kr">
-                <label for="kr">Kama Rajar</label><br>
-                <input type="checkbox" name="celebrity" id="nt">
-                <label for="nt">Nikola Tesla</label><br>
-                <input type="checkbox" name="celebrity" id="others">
-                <label for="others">Others</label><br>
-           </label>
-           <br>
-              <button type="submit">Submit</button>
-        </fieldset>
-            
-       </form>
-    </div>
+
+<style>
+    fieldset{
+        width: 20%;
+        padding: 0;
+    }
+    input[type='text']{
+        outline: none;
+        border: none;
+    }
+</style>
+
+<h1>Welcome to Gala Fest</h1>
+
+<form action="">
+
+<fieldset>
+    <legend>Name</legend>
+    <input id="super" type="text" name="name" id="name">
+</fieldset>
+<label for="name">Name :</label>
+<input type="text" name="name" id="name"><br>
+<label for="mail">E-mail :</label>
+<input type="email" name="mail" id="mail"><br>
+<label for="phone">Phone No :</label>
+<input type="tel" name="phone_number" id="phone"><br>
+
+<label for="role">Role :</label>
+<input type="radio" name="role" id="student">
+<label for="student">Students</label><br>
+<input type="radio" name="role" id="staff">
+<label for="staff">Staff</label><br>
+<input type="radio" name="role" id="admin">
+<label for="admin">Admin</label><br>
+
+<textarea name="comment" id="comments" cols="40" rows="5"></textarea>
+
+<h4>Interested celebrities</h4>
+    <input type="checkbox" name="celebrity" id="ak">
+    <label for="ak">Abdul Kalam</label><br>
+    <input type="checkbox" name="celebrity" id="kr">
+    <label for="kr">Kama Rajar</label><br>
+    <input type="checkbox" name="celebrity" id="nt">
+    <label for="nt">Nikola Tesla</label><br>
+    <input type="checkbox" name="celebrity" id="others">
+    <label for="others">Others</label><br>
+</label>
+<br>
+  <button type="submit">Submit</button>
+
+</form>
+
 </body>
 </html>
