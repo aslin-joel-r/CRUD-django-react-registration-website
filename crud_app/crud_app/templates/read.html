@@ -22,19 +22,20 @@
     </style>
 </head>
 <body>
-
+    {% for registration in registrations %}
     <div>
         <h1>Your Feedback</h1>
-        <p>Email : {{}}</p>
-        <p>Phone no : {{}}</p>
-        <p>Role : {{}}</p>
-        <p>Comments : {{}}</p>
-        <p>Next Celebrity : {{}}</p>
-        <br>
+        <p>Name : {{registration.username}}</p>
+        <p>Email : {{registration.email}}</p>
+        <p>Phone no : {{registrations.phone}}</p>
+        <p>Role : {{registrations.role}}</p>
+        <p>Comments : {{registrations.comments}}</p>
+        <p>Next Celebrity : {{registrations.celebrities}}</p>
+        <br> 
         <button>Update</button>
         <button>Delete</button>
     </div>
-
+    {% endfor %}
     
 </body>
 </html>
