@@ -32,5 +32,17 @@ def delete_record(request, record_id):
     return JsonResponse({'message': 'Record deleted successfully'})
 
 def update_record(request,record_id):
-    user_details = get_object_or_404(Register, pk=record_id)
-    return render(request,'update.html',{'user':user_details})
+    record = get_object_or_404(Register, pk=record_id)
+
+    if request.method == 'POST':
+        # Populate a form with the data from the retrieved object
+        form = RegisterForm(request.POST, instance=record)
+        if form.is_valid():
+            # Update the object with the new data
+            form.save()
+            # Redirect to a success page or the updated record page
+            return redirect('read')
+    else:
+        # Populate a form with the data from the retrieved object
+        form = RegisterForm(instance=record)
+    return render(request,'update.html',{'user':record})

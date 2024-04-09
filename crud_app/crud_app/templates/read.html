@@ -29,7 +29,7 @@
         <p>Comments: {{ registration.comments }}</p>
         <p>Next Celebrity: {{ registration.celebrities }}</p>
         <br> 
-        <button>Update</button>
+        <button ><a href="{% url 'update_record' registration.id %}">Update</a></button>
         <button onclick="deleteRecord('{{ registration.id }}')">Delete</button>
 
     </div>
