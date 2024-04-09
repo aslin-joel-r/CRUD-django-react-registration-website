@@ -7,6 +7,7 @@
             display: flex; /* Set display to flex */
             justify-content: center; /* Horizontally center the content */
             align-items: center; /* Vertically center the content */
+            gap: 30px;
        
         }
         div {
@@ -22,15 +23,16 @@
     </style>
 </head>
 <body>
+    
     {% for registration in registrations %}
     <div>
-        <h1>Your Feedback</h1>
+        <h2>Feedback</h2>
         <p>Name : {{registration.username}}</p>
         <p>Email : {{registration.email}}</p>
-        <p>Phone no : {{registrations.phone}}</p>
-        <p>Role : {{registrations.role}}</p>
-        <p>Comments : {{registrations.comments}}</p>
-        <p>Next Celebrity : {{registrations.celebrities}}</p>
+        <p>Phone no : {{registration.phone}}</p>
+        <p>Role : {{registration.role}}</p>
+        <p>Comments : {{registration.comments}}</p>
+        <p>Next Celebrity : {{registration.celebrities}}</p>
         <br> 
         <button>Update</button>
         <button>Delete</button>
