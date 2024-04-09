@@ -9,7 +9,8 @@
             align-items: center; /* Vertically center the content */
        
         }
-        div {margin-top: 80px;
+        div {
+            margin-top: 50px;
             padding: 20px;
             text-align: center; /* Center align the content */
             box-shadow: 5px 5px 60px 10px rgb(144, 5, 144);
@@ -53,7 +54,8 @@
 
 <div>
     <h1>Welcome to Gala Fest</h1>
-    <form action="">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
         <fieldset>
             <legend>Name</legend>
             <input type="text" name="name" id="name"><br>
