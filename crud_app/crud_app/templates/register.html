@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex; /* Set display to flex */
             justify-content: center; /* Horizontally center the content */
             align-items: center; /* Vertically center the content */
@@ -33,7 +33,8 @@
             outline: none;
             border: none;
             font-size: 15px;
-            
+           
+           
         }
         input[type='radio']{
             text-align: left;
@@ -48,6 +49,22 @@
             font-weight: bold;
             color: rgb(188, 6, 133);
         }
+        label{
+            color: purple;
+        }
+        #roles,#celebrity{
+            text-align: left;
+            margin-left: 40px;
+        }
+        button{
+            padding: 6px;
+            border-radius: 10px;
+            background-color: purple;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            width: 70px;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +75,7 @@
         {% csrf_token %}
         <fieldset>
             <legend>Name</legend>
-            <input type="text" name="username" id="name"><br>
+            <input type="text" name="username" id="name" required><br>
         </fieldset>
         <fieldset>
             <legend>E-mail</legend>
@@ -66,16 +83,18 @@
         </fieldset>
         <fieldset>
             <legend>Phone No</legend>
-            <input type="tel" name="phone" id="phone"><br>
+            <input type="tel" name="phone" id="phone" maxlength="10" required><br>
         </fieldset>
-        <fieldset>
+        <fieldset >
             <legend>Role</legend>
-            <input type="radio" name="role" id="student" value="student" name="role">
+           <section id="roles">
+            <input type="radio" name="role" id="student" value="student" name="role" required>
             <label  for="student">Students</label><br>
             <input type="radio" name="role" value="staff" id="staff">
             <label for="staff">Staff</label><br>
             <input value="admin" type="radio" name="role" id="admin">
             <label for="admin">Admin</label><br>
+           </section>
         </fieldset>
         <fieldset>
             <legend>Comments</legend>
@@ -83,7 +102,8 @@
         </fieldset>
         <fieldset>
             <legend>Interested celebrities</legend>
-            <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
+            <section id="celebrity">
+                <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak" required>
             <label for="ak">Abdul Kalam</label><br>
             <input value="kamarajar"  type="checkbox" name="celebrities" id="kr">
             <label for="kr">Kama Rajar</label><br>
@@ -91,8 +111,9 @@
             <label for="nt">Nikola Tesla</label><br>
             <input value="others" type="checkbox" name="celebrities" id="others">
             <label for="others">Others</label><br>
+            </section>
         </fieldset><br>
-        <button type="submit">Submit</button>
+        <button class="btn-primary" type="submit">Submit</button>
     </form>
 </div>
 
