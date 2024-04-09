@@ -21,3 +21,11 @@ def register(request):
 def read(request):
     registrations=Register.objects.all()
     return render(request,'read.html',{'registrations': registrations})
+
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+
+def delete_record(request, record_id):
+    registration = get_object_or_404(Register, pk=record_id)
+    registration.delete()
+    return JsonResponse({'message': 'Record deleted successfully'})

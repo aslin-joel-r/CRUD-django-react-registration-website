@@ -8,4 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.register, name='register'),
     path('read/', views.read, name='read'),
+      path('delete/<int:record_id>/', views.delete_record, name='delete_record'),
 ]
