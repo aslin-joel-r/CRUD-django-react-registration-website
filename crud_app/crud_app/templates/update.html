@@ -58,39 +58,41 @@
         {% csrf_token %}
         <fieldset>
             <legend>Name</legend>
-            <input type="text" name="username" id="name" value="hjdf"><br>
+            <input type="text" name="username" id="name" value="{{user.username}}"><br>
         </fieldset>
         <fieldset>
             <legend>E-mail</legend>
-            <input type="email" name="email" id="mail"><br>
+            <input type="email" name="email" id="mail" value="{{user.email}}"><br>
         </fieldset>
         <fieldset>
             <legend>Phone No</legend>
-            <input type="tel" name="phone" id="phone"><br>
+            <input type="tel" name="phone" id="phone" value="{{user.phone}}"><br>
         </fieldset>
         <fieldset>
             <legend>Role</legend>
-            <input type="radio" name="role" id="student" value="student" name="role">
+            <input type="radio" name="role"  {% if user.role == 'student' %}checked{% endif %} id="student" value="student" name="role" >
             <label  for="student">Students</label><br>
-            <input type="radio" name="role" value="staff" id="staff">
+            <input type="radio" {% if user.role == 'staff' %}checked{% endif %} name="role" value="staff" id="staff">
             <label for="staff">Staff</label><br>
-            <input value="admin" type="radio" name="role" id="admin">
+            <input value="admin"  {% if user.role == 'admin' %}checked{% endif %} type="radio" name="role" id="admin">
             <label for="admin">Admin</label><br>
         </fieldset>
         <fieldset>
             <legend>Comments</legend>
-            <textarea name="comments" id="comments" cols="40" rows="5"></textarea>
+            <textarea name="comments" id="comments" cols="40" rows="5">{{ user.comments }}</textarea>
+
         </fieldset>
         <fieldset>
-            <legend>Interested celebrities</legend>
-            <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
+            <legend>Interested Celebrities</legend>
+            <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak" {% if "Abdul Kalam" in user.celebrities %}checked{% endif %}>
             <label for="ak">Abdul Kalam</label><br>
-            <input value="kamarajar"  type="checkbox" name="celebrities" id="kr">
+            <input value="kamarajar"  type="checkbox" name="celebrities" id="kr" {% if "kamarajar" in user.celebrities %}checked{% endif %}>
             <label for="kr">Kama Rajar</label><br>
-            <input value="nikola tesla"  type="checkbox" name="celebrities" id="nt">
+            <input value="nikola tesla"  type="checkbox" name="celebrities" id="nt" {% if "nikola tesla" in user.celebrities %}checked{% endif %}>
             <label for="nt">Nikola Tesla</label><br>
-            <input value="others" type="checkbox" name="celebrities" id="others">
+            <input value="others" type="checkbox" name="celebrities" id="others" {% if "others" in user.celebrities %}checked{% endif %}>
             <label for="others">Others</label><br>
+            
         </fieldset><br>
         <button type="submit">Submit</button>
     </form>

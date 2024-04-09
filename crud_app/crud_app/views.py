@@ -32,4 +32,5 @@ def delete_record(request, record_id):
     return JsonResponse({'message': 'Record deleted successfully'})
 
 def update_record(request,record_id):
-    pass
+    user_details = get_object_or_404(Register, pk=record_id)
+    return render(request,'update.html',{'user':user_details})
