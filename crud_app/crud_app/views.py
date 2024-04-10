@@ -46,3 +46,7 @@ def update_record(request,record_id):
         # Populate a form with the data from the retrieved object
         form = RegisterForm(instance=record)
     return render(request,'update.html',{'user':record})
+
+def error_404(request, exception):
+    # Render the 404.html template with appropriate context
+    return render(request, '404.html', status=404)
