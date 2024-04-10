@@ -33,6 +33,7 @@
             outline: none;
             border: none;
             font-size: 15px;
+            font-family: monospace;
            
            
         }
@@ -75,15 +76,15 @@
         {% csrf_token %}
         <fieldset>
             <legend>Name</legend>
-            <input type="text" name="username" id="name" required><br>
+            <input type="text" name="username" id="name" placeholder="Your Name ...." required><br>
         </fieldset>
         <fieldset>
             <legend>E-mail</legend>
-            <input type="email" name="email" id="mail"><br>
+            <input type="email" name="email"  id="mail"><br>
         </fieldset>
         <fieldset>
             <legend>Phone No</legend>
-            <input type="tel" name="phone" id="phone" maxlength="10" required><br>
+            <input type="tel" placeholder="Enter only numbers !" pattern="[0-9]*" name="phone" id="phone" maxlength="10" required><br>
         </fieldset>
         <fieldset >
             <legend>Role</legend>
@@ -98,7 +99,7 @@
         </fieldset>
         <fieldset >
             <legend>Comments</legend>
-            <textarea name="comments" id="comments" cols="40" rows="5"></textarea>
+            <textarea placeholder="Type your Thoughts" name="comments" id="comments" cols="40" rows="5"></textarea>
         </fieldset>
         <fieldset>
             <legend>Interested celebrities</legend>
@@ -113,32 +114,45 @@
             <label for="others">Others</label><br>
             </section>
         </fieldset><br>
-        <button class="btn-primary" onclick="validateForm()">Submit</button>
+        <button class="btn-primary" onclick="validateForm(event)">Submit</button>
+
     </form>
 </div>
 <script>
- 
-    function validateForm(event) {
-        // Get all checkboxes
-        event.preventDefault();
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        let checked = false;
-        console.log(checkboxes)
-        // Check if at least one checkbox is checked
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                checked = true;
+
+        function validateForm(event) {
+            // Get all checkboxes
+            event.preventDefault();
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let checked = false;
+            
+            // Check if at least one checkbox is checked
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checked = true;
+                }
+            });
+        
+            // Check if the required fields are filled
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const role = document.querySelector('input[name="role"]:checked');
+            
+            if (name === '' || phone === '' || !role) {
+                alert('Please fill in all required fields.');
+                return;
             }
-        });
-    
-        // If no checkbox is checked, display an alert
-        if (!checked) {
-            alert('Please select at least one celebrity.');
-        } else {
+            
+            // If no checkbox is checked, display an alert
+            if (!checked) {
+                alert('Please select at least one celebrity.');
+                return;
+            }
+            
             // Submit the form
             document.querySelector('form').submit();
         }
-    }
+
     
         </script>
 </body>
