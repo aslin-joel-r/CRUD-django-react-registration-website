@@ -7,7 +7,6 @@
             display: flex; /* Set display to flex */
             justify-content: center; /* Horizontally center the content */
             align-items: center; /* Vertically center the content */
-       
         }
         div {
             margin-top: 50px;
@@ -34,8 +33,6 @@
             border: none;
             font-size: 15px;
             font-family: monospace;
-           
-           
         }
         input[type='radio']{
             text-align: left;
@@ -72,7 +69,7 @@
 
 <div>
     <h1>Welcome to Gala Fest</h1>
-    <form  method="post">
+    <form method="post">
         {% csrf_token %}
         <fieldset>
             <legend>Name</legend>
@@ -86,74 +83,67 @@
             <legend>Phone No</legend>
             <input type="tel" placeholder="Enter only numbers !" pattern="[0-9]*" name="phone" id="phone" maxlength="10" required><br>
         </fieldset>
-        <fieldset >
+        <fieldset>
             <legend>Role</legend>
-           <section id="roles">
-            <input type="radio" name="role" id="student" value="student" name="role" required>
-            <label  for="student">Students</label><br>
-            <input type="radio" name="role" value="staff" id="staff">
-            <label for="staff">Staff</label><br>
-            <input value="admin" type="radio" name="role" id="admin">
-            <label for="admin">Admin</label><br>
-           </section>
+            <section id="roles">
+                <input type="radio" name="role" id="student" value="student" required>
+                <label  for="student">Students</label><br>
+                <input type="radio" name="role" value="staff" id="staff">
+                <label for="staff">Staff</label><br>
+                <input value="admin" type="radio" name="role" id="admin">
+                <label for="admin">Admin</label><br>
+            </section>
         </fieldset>
-        <fieldset >
+        <fieldset>
             <legend>Comments</legend>
             <textarea placeholder="Type your Thoughts" name="comments" id="comments" cols="40" rows="5"></textarea>
         </fieldset>
         <fieldset>
             <legend>Interested celebrities</legend>
             <section id="celebrity">
-            <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
-            <label for="ak">Abdul Kalam</label><br>
-            <input value="kamarajar"  type="checkbox" name="celebrities" id="kr">
-            <label for="kr">Kama Rajar</label><br>
-            <input value="nikola tesla"  type="checkbox" name="celebrities" id="nt">
-            <label for="nt">Nikola Tesla</label><br>
-            <input value="others" type="checkbox" name="celebrities" id="others">
-            <label for="others">Others</label><br>
+                <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
+                <label for="ak">Abdul Kalam</label><br>
+                <input value="kamarajar"  type="checkbox" name="celebrities" id="kr">
+                <label for="kr">Kama Rajar</label><br>
+                <input value="nikola tesla"  type="checkbox" name="celebrities" id="nt">
+                <label for="nt">Nikola Tesla</label><br>
+                <input value="others" type="checkbox" name="celebrities" id="others">
+                <label for="others">Others</label><br>
             </section>
         </fieldset><br>
-        <button class="btn-primary" onclick="validateForm(event)">Submit</button>
-
+        <button class="btn-primary">Submit</button>
     </form>
 </div>
-<script>
 
-        function validateForm(event) {
-            // Get all checkboxes
-            event.preventDefault();
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            let checked = false;
-            
-            // Check if at least one checkbox is checked
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    checked = true;
-                }
-            });
+<script>
+    const form = document.querySelector('form');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission behavior
         
-            // Check if the required fields are filled
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const role = document.querySelector('input[name="role"]:checked');
-            
-            if (name === '' || phone === '' || !role) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // If no checkbox is checked, display an alert
-            if (!checked) {
-                alert('Please select at least one celebrity.');
-                return;
-            }
-            
-            // Submit the form
-            document.querySelector('form').submit();
+        // Default browser validation for name, email, and radio buttons
+        if (!this.checkValidity()) {
+            return;
         }
 
-    
-        </script>
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const role = document.querySelector('input[name="role"]:checked');
+        const checkedBoxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        
+        let errorMessage = '';
+
+        if (checkedBoxes.length === 0) {
+            errorMessage += 'Please select at least one celebrity.';
+        }
+
+        if (errorMessage !== '') {
+            alert(errorMessage);
+        } else {
+            this.submit();
+        }
+    });
+</script>
 </body>
 </html>
