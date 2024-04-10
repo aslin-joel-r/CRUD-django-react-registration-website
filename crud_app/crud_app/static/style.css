@@ -1,0 +1,64 @@
+
+div {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center; /* Center align the content */
+    box-shadow: 5px 5px 60px 10px rgb(144, 5, 144);
+    border-radius: 20px;
+}
+
+#roles,#celebrity{
+    text-align: left;
+    margin-left: 40px;
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex; /* Set display to flex */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+fieldset {
+    position: relative;
+    left: 0;
+    margin: auto;
+    padding-top: 0;
+    width: 80%;
+    border-radius: 15px;
+    border: 2px solid purple;
+}
+input[type='text'],
+input[type="email"],
+input[type='tel'],
+textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-family: monospace;
+}
+input[type='radio']{
+    text-align: left;
+}
+form {
+    position: relative;
+    left: 0;
+    margin: auto;
+}
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(188, 6, 133);
+}
+label{
+    color: purple;
+}
+button{
+    padding: 6px;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    width: 70px;
+}

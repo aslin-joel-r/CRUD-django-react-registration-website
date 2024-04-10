@@ -1,54 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            
-            display: flex; /* Set display to flex */
-            justify-content: center; /* Horizontally center the content */
-            align-items: center; /* Vertically center the content */
-       
-        }
-        div {
-            margin-top: 50px;
-            padding: 20px;
-            text-align: center; /* Center align the content */
-            box-shadow: 5px 5px 60px 10px rgb(144, 5, 144);
-            border-radius: 20px;
-        }
-        fieldset {
-            position: relative;
-            left: 0;
-            margin: auto;
-            padding-top: 0;
-            width: 80%;
-            border-radius: 15px;
-            border: 2px solid purple;
-        }
-        input[type='text'],
-        input[type="email"],
-        input[type='tel'],
-        textarea {
-            width: 100%;
-            outline: none;
-            border: none;
-            font-size: 15px;
-            
-        }
-        input[type='radio']{
-            text-align: left;
-        }
-        form {
-            position: relative;
-            left: 0;
-            margin: auto;
-        }
-        legend {
-            font-size: 20px;
-            font-weight: bold;
-            color: rgb(188, 6, 133);
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
 
@@ -62,14 +16,18 @@
         </fieldset>
         <fieldset>
             <legend>E-mail</legend>
-            <input type="email" name="email" id="mail" value="{{user.email}}"><br>
+            <input type="email" name="email" id="mail" value="{% if user.email == 'a@g.c' %}{% else %}{{ user.email }}{% endif %}">
+
+
         </fieldset>
         <fieldset>
             <legend>Phone No</legend>
             <input type="tel" name="phone" id="phone" value="{{user.phone}}"><br>
         </fieldset>
         <fieldset>
+           
             <legend>Role</legend>
+            <section id="roles">
             <input type="radio" name="role"  {% if user.role == 'student' %}checked{% endif %} id="student" value="student" name="role" >
             <label  for="student">Students</label><br>
             <input type="radio" {% if user.role == 'staff' %}checked{% endif %} name="role" value="staff" id="staff">
@@ -77,6 +35,7 @@
             <input value="admin"  {% if user.role == 'admin' %}checked{% endif %} type="radio" name="role" id="admin">
             <label for="admin">Admin</label><br>
         </fieldset>
+    </section>
         <fieldset>
             <legend>Comments</legend>
             <textarea name="comments" id="comments" cols="40" rows="5">{{ user.comments }}</textarea>
@@ -84,6 +43,7 @@
         </fieldset>
         <fieldset>
             <legend>Interested Celebrities</legend>
+            <section id="celebrity">
             <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak" {% if "Abdul Kalam" in user.celebrities %}checked{% endif %}>
             <label for="ak">Abdul Kalam</label><br>
             <input value="kamarajar"  type="checkbox" name="celebrities" id="kr" {% if "kamarajar" in user.celebrities %}checked{% endif %}>
@@ -92,11 +52,17 @@
             <label for="nt">Nikola Tesla</label><br>
             <input value="others" type="checkbox" name="celebrities" id="others" {% if "others" in user.celebrities %}checked{% endif %}>
             <label for="others">Others</label><br>
-            
+            </section>
         </fieldset><br>
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<script>
+   
+</script>
+
+    
 
 </body>
 </html>
