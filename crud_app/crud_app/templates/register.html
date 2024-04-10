@@ -103,7 +103,7 @@
         <fieldset>
             <legend>Interested celebrities</legend>
             <section id="celebrity">
-                <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
+            <input value="Abdul Kalam" type="checkbox" name="celebrities" id="ak">
             <label for="ak">Abdul Kalam</label><br>
             <input value="kamarajar"  type="checkbox" name="celebrities" id="kr">
             <label for="kr">Kama Rajar</label><br>
@@ -113,9 +113,33 @@
             <label for="others">Others</label><br>
             </section>
         </fieldset><br>
-        <button class="btn-primary" type="submit">Submit</button>
+        <button class="btn-primary" onclick="validateForm()">Submit</button>
     </form>
 </div>
-
+<script>
+ 
+    function validateForm() {
+        // Get all checkboxes
+        event.preventDefault();
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        let checked = false;
+        console.log(checkboxes)
+        // Check if at least one checkbox is checked
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checked = true;
+            }
+        });
+    
+        // If no checkbox is checked, display an alert
+        if (!checked) {
+            alert('Please select at least one celebrity.');
+        } else {
+            // Submit the form
+            document.querySelector('form').submit();
+        }
+    }
+    
+        </script>
 </body>
 </html>

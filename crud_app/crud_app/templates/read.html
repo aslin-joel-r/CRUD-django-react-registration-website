@@ -2,32 +2,61 @@
 <html>
 <head>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        h1{
+            text-align: center;
+            color: purple;
+            font-size: 40px;
+        }
+        section {
+            display:grid;
+            grid-template-columns: auto auto auto;
+            padding: 30px;
             gap: 30px;
         }
-        div {
-            margin-top: 80px;
-            padding: 20px;
+        #div {
+            margin-top: 40px;
+            padding: 30px;
             box-shadow: 5px 5px 60px 10px rgb(144, 5, 144);
             border-radius: 20px;
+           
             text-align: center;
+        }
+        #container{
+            text-align:left;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        button{
+            padding: 6px;
+            border-radius: 10px;
+            background-color: purple;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            width: 70px;
+            
+        }
+        *{
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
-    
-    {% for registration in registrations %}
-    <div>
-        <h2>Feedback</h2>
+    <h1>All Feedbacks</h1>
+    <section>
+        {% for registration in registrations %}
+    <div id="div">
+        
+        <div id="container">
         <p>Name: {{ registration.username }}</p>
         <p>Email: {{ registration.email }}</p>
         <p>Phone no: {{ registration.phone }}</p>
         <p>Role: {{ registration.role }}</p>
         <p>Comments: {{ registration.comments }}</p>
         <p>Next Celebrity: {{ registration.celebrities }}</p>
+        </div>
         <br> 
         <button ><a href="{% url 'update_record' registration.id %}">Update</a></button>
         <button onclick="deleteRecord('{{ registration.id }}')">Delete</button>
@@ -35,6 +64,7 @@
     </div>
     {% endfor %}
 
+    </section>
     <script>
         function deleteRecord(recordId) {
             if (confirm("Are you sure you want to delete this feedback?")) {
