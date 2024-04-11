@@ -21,12 +21,10 @@ function Register()
                 <fieldset>
                     <legend>Role</legend>
                     <section id="roles">
-                        <input type="radio" name="role" id="student" value="student" required/>
-                        <label  for="student">Student</label><br/>
-                        <input type="radio" name="role" value="staff" id="staff"/>
-                        <label for="staff">Staff</label><br/>
-                        <input value="admin" type="radio" name="role" id="admin">
-                        <label for="admin">Admin</label><br>
+                        <input type="radio" name="role" id="role1" value="Participant" required/>
+                        <label for="role1">Participant</label>
+                        <input type="radio" name="role" id="role2" value="Volunteer" required/>
+                        <label for="role2">Volunteer</label>
                     </section>
                 </fieldset>
             <button >Submit</button>
